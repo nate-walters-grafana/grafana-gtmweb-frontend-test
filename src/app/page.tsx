@@ -1,101 +1,110 @@
 import Image from "next/image";
+import Intro from "@/markdown/intro.mdx";
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <div className="relative flex-none overflow-hidden px-6 lg:pointer-events-none lg:fixed lg:inset-0 lg:z-40 lg:flex lg:px-0">
+        <div className="absolute inset-0 -z-10 overflow-hidden bg-gray-950 lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem]">
+          <svg
+            className="absolute -bottom-48 left-[-40%] h-[80rem] w-[180%] lg:-right-40 lg:bottom-auto lg:left-auto lg:top-[-40%] lg:h-[180%] lg:w-[80rem]"
+            aria-hidden="true"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <defs>
+              <radialGradient id={`glow-desktop`} cx="100%">
+                <stop offset="0%" stopColor="rgba(56, 189, 248, 0.3)" />
+                <stop offset="53.95%" stopColor="rgba(0, 71, 255, 0.09)" />
+                <stop offset="100%" stopColor="rgba(10, 14, 23, 0)" />
+              </radialGradient>
+              <radialGradient id={`glow-mobile`} cy="100%">
+                <stop offset="0%" stopColor="rgba(56, 189, 248, 0.3)" />
+                <stop offset="53.95%" stopColor="rgba(0, 71, 255, 0.09)" />
+                <stop offset="100%" stopColor="rgba(10, 14, 23, 0)" />
+              </radialGradient>
+            </defs>
+            <rect
+              width="100%"
+              height="100%"
+              fill={`url(#glow-desktop)`}
+              className="hidden lg:block"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <rect
+              width="100%"
+              height="100%"
+              fill={`url(#glow-mobile)`}
+              className="lg:hidden"
+            />
+          </svg>
+          <div className="absolute inset-x-0 bottom-0 right-0 h-px bg-white mix-blend-overlay lg:left-auto lg:top-0 lg:h-auto lg:w-px" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="relative flex w-full lg:pointer-events-auto lg:mr-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-y-auto lg:overflow-x-hidden lg:pl-[max(4rem,calc(50%-38rem))]">
+          <div className="mx-auto max-w-lg lg:mx-0 lg:flex lg:w-96 lg:max-w-none lg:flex-col items-center justify-center">
+            <div className="pb-16 pt-20 sm:pb-20 sm:pt-32 lg:py-20">
+              <div className="relative">
+                <div>
+                  <Image
+                    src="/grafana-logo.svg"
+                    alt="Grafana logo"
+                    width={200}
+                    height={34}
+                    priority
+                  />
+                </div>
+                <h1 className="mt-14 font-display text-4xl/tight font-light text-white">
+                  Marketing Website{' '}
+                  <span className="text-sky-300">Skills Assessment</span>
+                </h1>
+                <p className="mt-4 text-sm/6 text-gray-300">
+                  Please read the assessment instructions to the right carefully. When you're ready, hit the button below to begin the test. You'll have 60 minutes to complete the challenge, but we're not gonna be mad if you go over a little bit. We're not monsters! We're just trying to get a sense of how you work under a little bit of pressure.
+                </p>
+                <Link href="/test" className="inline-block mt-8 px-6 py-3 text-sm/6 font-semibold text-white bg-sky-500 rounded-full hover:bg-sky-600 focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950 focus-visible:ring-opacity-60">
+                    Start the test
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative flex-auto">
+        <div className="pointer-events-none absolute inset-0 z-50 overflow-hidden lg:right-[calc(max(2rem,50%-38rem)+40rem)] lg:min-w-[32rem] lg:overflow-visible">
+          <svg
+            className="absolute left-[max(0px,calc(50%-18.125rem))] top-0 h-full w-1.5 lg:left-full lg:ml-1 xl:left-auto xl:right-1 xl:ml-0"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern id="pattern" width="6" height="8" patternUnits="userSpaceOnUse">
+                <path
+                  d="M0 0H6M0 8H6"
+                  className="stroke-sky-900/10 xl:stroke-white/10 dark:stroke-white/10"
+                  fill="none"
+                />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill={`url(#rect)`} />
+          </svg>
+        </div>
+        <main className="space-y-20 py-20 sm:space-y-32 sm:pb-32">
+          <article id="commit-message-suggestions" className="scroll-mt-16">
+            <div>
+              <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
+                <div className="lg:ml-96 lg:flex lg:w-full lg:justify-end lg:pl-32">
+                  <div className="mx-auto max-w-lg lg:mx-0 lg:w-0 lg:max-w-xl lg:flex-auto flex-col typography text-slate-900" data-mdx-content="true">
+                    <Image
+                      src="/grot-test-icon.svg"
+                      alt="Grot taking a test"
+                      width={250}
+                      height={185}
+                      priority
+                    />
+                    <Intro />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </main>
+      </div>
+    </>
   );
 }
