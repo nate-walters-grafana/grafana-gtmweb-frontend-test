@@ -7,7 +7,7 @@ export default function Test() {
       <div>
         <h1 className="text-4xl">Test instructions</h1>
         <p className="mb-6">Recreate the following design and add it below the image. The necessary data should be retrieved from the <span className="font-bold">`http://localhost:3000/api/bands`</span> endpoint.</p>
-        <Image src="/blog-post-list.png" alt="Grafana Logo" width="2588" height="1466" />
+        <Image src="/bands-post-list.png" alt="Grafana Logo" width="2588" height="1466" />
       </div>
       <div className="pt-6 border-t-2 mt-6">
         <h2 className="text-2xl">References and documentation</h2>
